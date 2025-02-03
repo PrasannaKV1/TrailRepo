@@ -41,7 +41,8 @@ public class QuestionPaper {
      @FindBy(xpath = "//button[text()='Next']")
      WebElement NextButtonFirstStep;
 
-
+     @FindBy(xpath="//button[text()='Create New Question Paper']")
+     WebElement CreateQuestionPaper;
      @FindBy(xpath = "//img[@class='logoImg']")
      WebElement SchoolLogo;
      public void setQuestionPaper(WebElement questionPaper) {
@@ -87,5 +88,9 @@ public class QuestionPaper {
      public WebElement getAssessment() {
           return Assessment;
      }
+
+    public WebElement getCreateQuestionPaper() {
+        return CreateQuestionPaper;
+    }
 }
 
