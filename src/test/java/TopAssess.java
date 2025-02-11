@@ -2,6 +2,7 @@ import Base.TestBase;
 import Base.URLLUNCH;
 import Pages.QuestionPaper;
 import org.openqa.selenium.interactions.Actions;
+import static Base.TestBase.driver;
 
 public class TopAssess extends TestBase {
 
@@ -12,9 +13,8 @@ public class TopAssess extends TestBase {
         URL.urllunch();
         QuestionPaper qppage= new QuestionPaper();
         Thread.sleep(4000);
-        qppage.getCreateQuestionPaper().click();
+        //Actions referencevariable=new Actions(driver);
+        qppage.getCreateQP().click();
         Thread.sleep(3000);
-
-
     }
 }
