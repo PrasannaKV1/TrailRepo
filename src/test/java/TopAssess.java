@@ -1,6 +1,7 @@
 import Base.TestBase;
 import Base.URLLUNCH;
 import Pages.QuestionPaper;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import static Base.TestBase.driver;
 
@@ -11,10 +12,18 @@ public class TopAssess extends TestBase {
         base.intialization();
         URLLUNCH URL=new URLLUNCH();
         URL.urllunch();
-        QuestionPaper qppage= new QuestionPaper();
-        Thread.sleep(4000);
-        //Actions referencevariable=new Actions(driver);
-        qppage.getCreateQP().click();
+        QuestionPaper qppage= new QuestionPaper(driver) ;
+
+        Thread.sleep(8000);
+        Actions referencevariable=new Actions(driver);
+        qppage.getCreateQp().click();
         Thread.sleep(3000);
+        qppage.getAutoGeneration().click();
+        Thread.sleep(3000);
+        qppage.getCreateAssessment().click();
+        Thread.sleep(4000);
+        qppage.getNameOfExamination().click();
+        qppage.getNameOfExamination().sendKeys("rekha_karthik");
+        driver.quit();
     }
 }

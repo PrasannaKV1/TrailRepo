@@ -1,9 +1,15 @@
 package Pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class QuestionPaper {
+
+
+
+    WebDriver driver;
 
      @FindBy(xpath = "//div[text()='Question Paper']")
      WebElement QuestionPaper;
@@ -13,6 +19,36 @@ public class QuestionPaper {
 
      @FindBy(xpath = "//button[text()='Create New Question Paper']")
      WebElement CreateQP;
+
+    public WebElement getAutoGeneration() {
+        return AutoGeneration;
+    }
+
+    @FindBy(xpath = "//h4[text()='Auto generation']")
+     WebElement AutoGeneration;
+
+    public WebElement getNameOfExamination() {
+        return NameOfExamination;
+    }
+
+    @FindBy(xpath = "//label[text()='Name of Examination *']")
+    WebElement NameOfExamination;
+
+
+
+
+    public QuestionPaper(WebDriver driver) {
+         this.driver=driver;
+          PageFactory.initElements(driver,this);
+
+    }
+
+    public WebElement getCreateQp() {
+        return CreateQp;
+    }
+
+    @FindBy(xpath = "//button[text()='Create New Question Paper']")
+     WebElement CreateQp;
 
      @FindBy(xpath="//h4[text()='Auto generation']")
      WebElement Auto ;
