@@ -17,8 +17,8 @@ public class QuestionPaper {
      @FindBy(xpath = "//div[text()='Assessment']")
      WebElement Assessment;
 
-     @FindBy(xpath = "//button[text()='Create New Question Paper']")
-     WebElement CreateQP;
+//     @FindBy(xpath = "//button[text()='Create New Question Paper']")
+//     WebElement CreateQP;
 
     public WebElement getAutoGeneration() {
         return AutoGeneration;
@@ -27,12 +27,15 @@ public class QuestionPaper {
     @FindBy(xpath = "//h4[text()='Auto generation']")
      WebElement AutoGeneration;
 
+
+    @FindBy(xpath = "//input[@type='text]")
+    WebElement NameOfExamination;
+
+
     public WebElement getNameOfExamination() {
         return NameOfExamination;
     }
 
-    @FindBy(xpath = "//label[text()='Name of Examination *']")
-    WebElement NameOfExamination;
 
 
 
@@ -56,7 +59,7 @@ public class QuestionPaper {
      @FindBy(xpath = "(//button[text()='Create Assessment'])[1]")
      WebElement CreateAssessment;
 
-     @FindBy(xpath = "//span[text()='Name of Examination *']")
+     @FindBy(xpath = "//label[text()='Name of Examination *']/following-sibling::div/input")
      WebElement  Nameofexamination;
 
      @FindBy(xpath = "(//div[@role='button'])[1]")
@@ -77,8 +80,8 @@ public class QuestionPaper {
      @FindBy(xpath = "//button[text()='Next']")
      WebElement NextButtonFirstStep;
 
-    // @FindBy(xpath="//button[text()='Create New Question Paper']")
-    // WebElement CreateQuestionPaper;
+//     @FindBy(xpath="//button[text()='Create New Question Paper']")
+//     WebElement CreateQuestionPaper;
      @FindBy(xpath = "//img[@class='logoImg']")
      WebElement SchoolLogo;
      public void setQuestionPaper(WebElement questionPaper) {
@@ -93,9 +96,9 @@ public class QuestionPaper {
           return CreateAssessment;
      }
 
-     public WebElement getCreateQP() {
-          return CreateQP;
-     }
+//     public WebElement getCreateQP() {
+//          return CreateQP;
+//     }
 
      public WebElement getGrade() {
           return Grade;
