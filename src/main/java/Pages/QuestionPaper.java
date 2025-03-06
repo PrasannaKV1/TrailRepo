@@ -80,8 +80,59 @@ public class QuestionPaper {
      @FindBy(xpath = "//button[text()='Next']")
      WebElement NextButtonFirstStep;
 
-//     @FindBy(xpath="//button[text()='Create New Question Paper']")
-//     WebElement CreateQuestionPaper;
+    public WebElement getGradeOption() {
+        return GradeOption;
+    }
+
+    public void setGradeOption(WebElement gradeOption) {
+        GradeOption = gradeOption;
+    }
+
+    @FindBy(xpath = "//label[text()='Grade']/parent::div")
+     WebElement GradeOption;
+
+    public WebElement getGrade7() {
+        return Grade7;
+    }
+
+    public void setGrade7(WebElement grade7) {
+        Grade7 = grade7;
+    }
+
+    @FindBy(xpath = "//li[text()='Grade 7']")
+     WebElement Grade7;
+
+    public WebElement getSections() {
+        return Sections;
+    }
+
+    @FindBy(xpath ="//label[text()='Section(s)']/parent::div" )
+     WebElement Sections;
+
+    public WebElement getSectionD() {
+        return SectionD;
+    }
+
+    @FindBy(xpath="//span[text()='D']")
+     WebElement SectionD;
+
+    public WebElement getSubjectsOptions() {
+        return subjectsOptions;
+    }
+
+    @FindBy(xpath = "//label[text()='Subject(s)']/parent::div")
+    WebElement subjectsOptions;
+
+    public WebElement getHindi() {
+        return Hindi;
+    }
+
+    @FindBy(xpath = "//span[text()='Hindi']")
+     WebElement Hindi;
+
+     //     @FindBy(xpath="//b
+     //     utton[text()='Create New Question Paper']")
+     //     WebElement CreateQuestionPaper;
      @FindBy(xpath = "//img[@class='logoImg']")
      WebElement SchoolLogo;
      public void setQuestionPaper(WebElement questionPaper) {

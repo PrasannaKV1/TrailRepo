@@ -34,6 +34,17 @@ public class TopAssess extends TestBase {
         //qppage.getNameofexamination().click();
         qppage.getNameofexamination().sendKeys("rekha_karthik");
         Thread.sleep(3000);
+        qppage.getGradeOption().click();
+        Thread.sleep(2000);
+        qppage.getGrade7().click();
+        Thread.sleep(2000);
+        qppage.getSections().click();
+        Thread.sleep(2000);
+        qppage.getSectionD().click();
+        Thread.sleep(2000);
+        qppage.getSubjectsOptions().click();;
+        Thread.sleep(2000);
+        qppage.getHindi().click();
 //        Actions a = new Actions(driver);
 //        a.moveToElement(qppage.getNameofexamination()).click().perform();
         //qppage.getNameofexamination().sendKeys("rekha_karthik");
