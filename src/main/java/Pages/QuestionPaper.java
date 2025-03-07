@@ -50,7 +50,7 @@ public class QuestionPaper {
         return CreateQp;
     }
 
-    @FindBy(xpath = "//button[text()='Create New Question Paper']")
+     @FindBy(xpath = "//button[text()='Create New Question Paper']")
      WebElement CreateQp;
 
      @FindBy(xpath="//h4[text()='Auto generation']")
@@ -127,10 +127,62 @@ public class QuestionPaper {
         return Hindi;
     }
 
+
+
     @FindBy(xpath = "//span[text()='Hindi']")
      WebElement Hindi;
 
-     //     @FindBy(xpath="//b
+    public WebElement getOutside() {
+        return outside;
+    }
+
+    @FindBy(xpath ="//div[@id='root']")
+    WebElement outside;
+
+    public WebElement getGoBack() {
+        return GoBack;
+    }
+
+    @FindBy(xpath="//p[text()='Go back']")
+    WebElement GoBack;
+
+    public WebElement getNext() {
+        return Next;
+    }
+
+    @FindBy(xpath = "//button[text()='Next']")
+    WebElement Next;
+
+    public WebElement getTemplateselection() {
+        return Templateselection;
+    }
+
+    @FindBy(xpath="//input[@value=2251]")
+    WebElement Templateselection;
+
+    public WebElement getGenerateQP() {
+        return GenerateQP;
+    }
+
+    @FindBy(xpath ="//button[text()='Generate Question paper']")
+    WebElement GenerateQP;
+
+
+    public WebElement getContinueedtiting() {
+        return Continueedtiting;
+    }
+
+    @FindBy(xpath ="//button[text()='Continue Editing']")
+    WebElement Continueedtiting;
+
+    public WebElement getSave() {
+        return save;
+    }
+
+    @FindBy(xpath ="//button[text()='Save']")
+    WebElement save;
+
+ ;    //     @;;FindBy(xpath="//b
      //     utton[text()='Create New Question Paper']")
      //     WebElement CreateQuestionPaper;
      @FindBy(xpath = "//img[@class='logoImg']")
