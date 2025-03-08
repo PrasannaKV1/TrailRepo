@@ -48,15 +48,16 @@ public class TopAssessETOE {
         qppage.getHindi().click();
         a.moveToElement(qppage.getGoBack()).click().perform();
         qppage.getNext().click();
-        a.moveToElement(qppage.getGoBack()).click().perform();
+        //a.moveToElement(qppage.getGoBack()).click().perform();
         /// qppage.getOutside().click();
         Thread.sleep(2000);
-        Thread.sleep(2000);
-        qppage.getHindi().click();
-        Thread.sleep(2000);
-        a.moveToElement(qppage.getGoBack()).click().perform();
-        qppage.getNext().click();
-        Thread.sleep(2000);
+        /////qppage.getHindi().click();
+        //Thread.sleep(2000);
+        //a.moveToElement(qppage.getGoBack()).click().perform();
+        //Thread.sleep(2000);
+        //qppage.getContinueedtiting().click();
+       // qppage.getNext().click();
+       // Thread.sleep(2000);
         qppage.getTemplateselection().click();//p[text()='Go back']
         qppage.getGoBack().click();
         Thread.sleep(2000);
