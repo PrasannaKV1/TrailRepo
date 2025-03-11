@@ -5,14 +5,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 import static Base.TestBase.driver;
 
 public class URLLUNCH {
 
 
-    public void urllunch() throws InterruptedException {
+    public void urllunch() throws InterruptedException, IOException {
         driver.get("https://phase7.nprd.topschool.co.in");;
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         WebElement elk=driver.findElement(By.xpath("//span[text()='Teacher']"));
@@ -21,6 +25,13 @@ public class URLLUNCH {
         WebElement base2 =driver.findElement(By.xpath("//input[@name='userName']"));
         base2.click();
         Thread.sleep(2000);
+        FileInputStream fs=new FileInputStream("C:\\TopAssess\\FinalTopAssessAutomation\\src\\main\\java\\Data\\TestData.properties");
+//        Properties p=new Properties();
+//        p.load(fs);
+//        String un = p.getProperty(username);
+//        String pw = p.getProperty(password);
+//        System.out.println(un);
+//        System.out.println(pw);
         base2.sendKeys("rrh");
         WebElement base3=driver.findElement(By.xpath("//input[@name='password']"));
         Thread.sleep(2000);

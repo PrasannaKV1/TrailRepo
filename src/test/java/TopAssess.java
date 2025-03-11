@@ -8,6 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.IOException;
 import java.time.Duration;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
@@ -16,7 +17,7 @@ import static Base.TestBase.driver;
 
 public class TopAssess extends TestBase {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
         TestBase base = new TestBase();
         base.intialization();
         URLLUNCH URL = new URLLUNCH();
