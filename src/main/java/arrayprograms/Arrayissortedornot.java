@@ -18,7 +18,7 @@ public class Arrayissortedornot {
 
 
     public static boolean isSorted(int[] array) {
-
+     //            0  to 4-1=3
         for (int i = 0; i < array.length-1; i++) {
             if (array[i] > array[i + 1]) {
                 return false;

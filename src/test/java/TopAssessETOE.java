@@ -60,7 +60,7 @@ public class TopAssessETOE {
         Thread.sleep(3000);
         js.executeScript("window.scrollBy(0,1000)");
         a.moveToElement(qppage.getGenerateQP()).click().perform();
-        Thread.sleep(17000);
+        Thread.sleep(20000);
         qppage.getSave().click();
         driver.quit();
 
