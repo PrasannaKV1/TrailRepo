@@ -5,6 +5,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -21,6 +23,9 @@ public class TopAssesWithImplictWait {
 
         // Set Implicit Wait (applies globally)
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+
+        Actions action = new Actions(driver);
 
         URLLUNCH URL = new URLLUNCH();
         URL.urllunch(); // Launch URL
@@ -29,66 +34,78 @@ public class TopAssesWithImplictWait {
         JavascriptExecutor js = (JavascriptExecutor) driver;
 
         QuestionPaper qppage = new QuestionPaper(driver);
+        FluentWait<WebDriver> fluentWait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(10)) // Maximum wait time
+                .pollingEvery(Duration.ofSeconds(1)) // Frequency of checking the condition
+                .ignoring(Exception.class);
 
-            // Click on "Create Question Paper"
-            qppage.getCreateQp().click();
 
-            // Click on "Auto Generation"
-            qppage.getAutoGeneration().click();
+        qppage.clickOnQP();
 
-            // Click on "Create Assessment"
-            qppage.getCreateAssessment().click();
+           // Click on "Create Question Paper"
+          // base.waitForPageLoad(driver);
+//           fluentWait.until(ExpectedConditions.elementToBeClickable(qppage.getCreateQp()));
+//           action.moveToElement(qppage.getCreateQp()).click().perform();
 
-            // Enter Exam Name
-            String randomString = UUID.randomUUID().toString().replace("-", "");
-            System.out.println("Generated Exam Name: " + randomString);
-            qppage.getNameofexamination().sendKeys(randomString);
+          // qppage.getCreateQp().click();
 
-            // Select Grade
-            qppage.getGradeOption().click();
-            qppage.getGrade7().click();
+           // Click on "Auto Generation"
+           qppage.getAutoGeneration().click();
 
-            // Select Section
-            qppage.getSections().click();
-            qppage.getSectionD().click();
+           // Click on "Create Assessment"
+           qppage.getCreateAssessment().click();
 
-            // Click "Go Back"
-            actions.moveToElement(qppage.getGoBack()).click().perform();
+           // Enter Exam Name
+           String randomString = UUID.randomUUID().toString().replace("-", "");
+           System.out.println("Generated Exam Name: " + randomString);
+           qppage.getNameofexamination().sendKeys(randomString);
 
-            // Select Subject
-            qppage.getSubjectsOptions().click();
-            qppage.getHindi().click();
+           // Select Grade
+           qppage.getGradeOption().click();
+           qppage.getGrade7().click();
 
-            // Click "Go Back"
-            actions.moveToElement(qppage.getGoBack()).click().perform();
+           // Select Section
+           qppage.getSections().click();
+           qppage.getSectionD().click();
 
-            // Click "Next"
-            qppage.getNext().click();
+           // Click "Go Back"
+           actions.moveToElement(qppage.getGoBack()).click().perform();
 
-            // Select Template
-            qppage.getTemplateselection().click();
-            qppage.getGoBack().click();
-            qppage.getContinueedtiting().click();
+           // Select Subject
+           qppage.getSubjectsOptions().click();
+           qppage.getHindi().click();
 
-            // Scroll Down and Click "Next"
-            js.executeScript("window.scrollBy(0,1000)");
-            qppage.getNext().click();
+           // Click "Go Back"
+           actions.moveToElement(qppage.getGoBack()).click().perform();
 
-            // Scroll Down and Click "Generate Question Paper"
-            js.executeScript("window.scrollBy(0,1000)");
-            qppage.getGenerateQP().click();
+           // Click "Next"
+           qppage.getNext().click();
 
-            // Click "Save"
-            qppage.getSave().click();
+           // Select Template
+           qppage.getTemplateselection().click();
+           qppage.getGoBack().click();
+           qppage.getContinueedtiting().click();
 
-//        } catch (StaleElementReferenceException e) {
-//            System.out.println("Stale Element Detected, Retrying...");
-//            driver.navigate().refresh(); // Refresh Page
-//            main(args); // Restart Execution
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        } finally {
-//            driver.quit(); // Ensure driver quits even if an error occurs
-//        }
+           // Scroll Down and Click "Next"
+           js.executeScript("window.scrollBy(0,1000)");
+           qppage.getNext().click();
+
+           // Scroll Down and Click "Generate Question Paper"
+           js.executeScript("window.scrollBy(0,1000)");
+           qppage.getGenerateQP().click();
+
+           // Click "Save"
+           qppage.getSave().click();
+
+
+     } catch (StaleElementReferenceException e) {
+            System.out.println("Stale Element Detected, Retrying...");
+            driver.navigate().refresh(); // Refresh Page
+            main(args); // Restart Execution
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+        driver.quit(); // Ensure driver quits even if an error occurs
+     }
     }
 }

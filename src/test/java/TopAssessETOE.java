@@ -16,11 +16,11 @@ public class TopAssessETOE {
     public static void main(String[] args) throws InterruptedException, IOException {
         TestBase base = new TestBase();
         base.intialization();
-        URLLUNCH URL=new URLLUNCH();
+        URLLUNCH URL = new URLLUNCH();
         URL.urllunch();
-        QuestionPaper qppage= new QuestionPaper(driver);
+        QuestionPaper qppage = new QuestionPaper(driver);
         Thread.sleep(8000);
-        Actions referencevariable=new Actions(driver);
+        Actions referencevariable = new Actions(driver);
         Thread.sleep(3000);
         qppage.getCreateQp().click();
         Thread.sleep(2000);
@@ -52,7 +52,8 @@ public class TopAssessETOE {
         qppage.getTemplateselection().click();
         qppage.getGoBack().click();
         Thread.sleep(2000);
-        qppage.getContinueedtiting().click();Thread.sleep(2000);
+        qppage.getContinueedtiting().click();
+        Thread.sleep(2000);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,1000)");
         Thread.sleep(2000);

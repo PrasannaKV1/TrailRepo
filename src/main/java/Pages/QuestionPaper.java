@@ -2,6 +2,7 @@ package Pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -9,7 +10,7 @@ public class QuestionPaper {
 
 
 
-    WebDriver driver;
+    static WebDriver driver;
 
      @FindBy(xpath = "//div[text()='Question Paper']")
      WebElement QuestionPaper;
@@ -79,6 +80,11 @@ public class QuestionPaper {
 
      @FindBy(xpath = "//button[text()='Next']")
      WebElement NextButtonFirstStep;
+     @FindBy(xpath = "(//input[@class='PrivateSwitchBase-input css-1m9pwf3'])[2]") WebElement firstQP;
+     public WebElement getFirstQP()
+     {
+         return firstQP;
+     }
 
     public WebElement getGradeOption() {
         return GradeOption;
@@ -231,6 +237,13 @@ public class QuestionPaper {
           return Assessment;
      }
 
-
+    public void clickOnQP() throws InterruptedException {
+        driver.navigate().refresh();
+     //   wait(2);
+    //    getCreateQp().click();
+        getFirstQP().click();
+        Actions action = new Actions(driver);
+        action.moveToElement(getCreateQp()).click().perform();
+    }
 }
 
