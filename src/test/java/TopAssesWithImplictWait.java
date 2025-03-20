@@ -22,7 +22,7 @@ public class TopAssesWithImplictWait {
         WebDriver driver = base.getDriver();
 
         // Set Implicit Wait (applies globally)
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
         Actions action = new Actions(driver);
@@ -39,7 +39,7 @@ public class TopAssesWithImplictWait {
                 .pollingEvery(Duration.ofSeconds(1)) // Frequency of checking the condition
                 .ignoring(Exception.class);
 
-
+        try{
         qppage.clickOnQP();
 
            // Click on "Create Question Paper"
@@ -66,6 +66,8 @@ public class TopAssesWithImplictWait {
 
            // Select Section
            qppage.getSections().click();
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
+
            qppage.getSectionD().click();
 
            // Click "Go Back"
@@ -73,6 +75,7 @@ public class TopAssesWithImplictWait {
 
            // Select Subject
            qppage.getSubjectsOptions().click();
+           driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
            qppage.getHindi().click();
 
            // Click "Go Back"
@@ -98,14 +101,19 @@ public class TopAssesWithImplictWait {
            qppage.getSave().click();
 
 
-     } catch (StaleElementReferenceException e) {
+     }
+     catch (StaleElementReferenceException e)
+     {
             System.out.println("Stale Element Detected, Retrying...");
             driver.navigate().refresh(); // Refresh Page
             main(args); // Restart Execution
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             e.printStackTrace();
-        } finally {
+        }
+        finally {
         driver.quit(); // Ensure driver quits even if an error occurs
      }
     }
 }
+
