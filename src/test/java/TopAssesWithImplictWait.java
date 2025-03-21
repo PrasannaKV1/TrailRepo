@@ -4,9 +4,11 @@ import Pages.QuestionPaper;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -22,7 +24,7 @@ public class TopAssesWithImplictWait {
         WebDriver driver = base.getDriver();
 
         // Set Implicit Wait (applies globally)
-         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
+         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(55));
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
         Actions action = new Actions(driver);
@@ -40,17 +42,8 @@ public class TopAssesWithImplictWait {
                 .ignoring(Exception.class);
 
         try{
-        qppage.clickOnQP();
-
-           // Click on "Create Question Paper"
-          // base.waitForPageLoad(driver);
-//           fluentWait.until(ExpectedConditions.elementToBeClickable(qppage.getCreateQp()));
-//           action.moveToElement(qppage.getCreateQp()).click().perform();
-
-          // qppage.getCreateQp().click();
-
-           // Click on "Auto Generation"
-           qppage.getAutoGeneration().click();
+          qppage.clickOnQP();
+          qppage.getAutoGeneration().click();
 
            // Click on "Create Assessment"
            qppage.getCreateAssessment().click();
@@ -66,8 +59,7 @@ public class TopAssesWithImplictWait {
 
            // Select Section
            qppage.getSections().click();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
-
+           driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
            qppage.getSectionD().click();
 
            // Click "Go Back"
@@ -82,17 +74,22 @@ public class TopAssesWithImplictWait {
            actions.moveToElement(qppage.getGoBack()).click().perform();
 
            // Click "Next"
-           qppage.getNext().click();
+            qppage.getNext().click();
 
            // Select Template
            qppage.getTemplateselection().click();
            qppage.getGoBack().click();
+           driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
            qppage.getContinueedtiting().click();
 
            // Scroll Down and Click "Next"
-           js.executeScript("window.scrollBy(0,1000)");
-           qppage.getNext().click();
+            WebElement nextButton = qppage.getNext();
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", nextButton);
+            Thread.sleep(1000); // Give time to stabilize
+            nextButton.click();
 
+
+           //
            // Scroll Down and Click "Generate Question Paper"
            js.executeScript("window.scrollBy(0,1000)");
            qppage.getGenerateQP().click();
