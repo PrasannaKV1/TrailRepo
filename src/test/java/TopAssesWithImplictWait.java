@@ -74,7 +74,10 @@ public class TopAssesWithImplictWait {
            actions.moveToElement(qppage.getGoBack()).click().perform();
 
            // Click "Next"
-            qppage.getNext().click();
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.elementToBeClickable(qppage.getNext())).click();
+
+
 
            // Select Template
            qppage.getTemplateselection().click();
@@ -92,7 +95,8 @@ public class TopAssesWithImplictWait {
            //
            // Scroll Down and Click "Generate Question Paper"
            js.executeScript("window.scrollBy(0,1000)");
-           qppage.getGenerateQP().click();
+            //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.elementToBeClickable( qppage.getGenerateQP())).click();
 
            // Click "Save"
            qppage.getSave().click();
